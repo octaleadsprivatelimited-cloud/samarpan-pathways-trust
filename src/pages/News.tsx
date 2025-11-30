@@ -10,7 +10,7 @@ const News = () => {
     {
       title: "New Education Center Opens in Rural Village",
       date: "December 15, 2023",
-      excerpt: "Youth Service Trust inaugurates a new learning center equipped with modern facilities and digital resources, serving over 200 students.",
+      excerpt: "Swamivivekananda Seva Brundam inaugurates a new learning center equipped with modern facilities and digital resources, serving over 200 students.",
       category: "Education"
     },
     {
@@ -40,7 +40,7 @@ const News = () => {
     {
       title: "Recognition Award for Community Impact",
       date: "October 10, 2023",
-      excerpt: "Youth Service Trust receives state recognition for outstanding contribution to rural development and community empowerment.",
+      excerpt: "Swamivivekananda Seva Brundam receives state recognition for outstanding contribution to rural development and community empowerment.",
       category: "Awards"
     },
   ];

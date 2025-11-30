@@ -1,18 +1,32 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import educationImage from "@/assets/education-program.jpg";
-import womenImage from "@/assets/women-empowerment.jpg";
-import heroImage from "@/assets/hero-home.jpg";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
+import { X } from "lucide-react";
 
 const Gallery = () => {
-  const images = [
-    { src: educationImage, alt: "Education program", category: "Education" },
-    { src: womenImage, alt: "Women empowerment", category: "Women Empowerment" },
-    { src: heroImage, alt: "Community gathering", category: "Events" },
-    { src: educationImage, alt: "Learning center", category: "Education" },
-    { src: womenImage, alt: "Skill training", category: "Women Empowerment" },
-    { src: heroImage, alt: "Health camp", category: "Health" },
-  ];
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
+  // Use Vite's glob import to get all gallery images
+  const imageModules = import.meta.glob('@/assets/gallery/Swamivivekananda Seva Brundam*.jpg', { eager: true });
+  
+  // Convert to array and sort by filename
+  const galleryImages = Object.entries(imageModules)
+    .map(([path, module]: [string, any]) => {
+      const filename = path.split('/').pop() || '';
+      const match = filename.match(/(\d+)/);
+      const order = match ? parseInt(match[1]) : 0;
+      return {
+        src: module.default || module,
+        alt: `Seva Activities - ${filename}`,
+        category: "Seva Activities",
+        order
+      };
+    })
+    .sort((a, b) => a.order - b.order);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -28,8 +42,12 @@ const Gallery = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((image, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            {galleryImages.map((image, index) => (
+              <div 
+                key={index} 
+                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+                onClick={() => setSelectedImage({ src: image.src, alt: image.alt })}
+              >
                 <img 
                   src={image.src} 
                   alt={image.alt} 
@@ -46,6 +64,26 @@ const Gallery = () => {
               </div>
             ))}
           </div>
+
+          <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+            <DialogContent className="max-w-5xl w-full p-0 bg-transparent border-none">
+              {selectedImage && (
+                <div className="relative">
+                  <button
+                    onClick={() => setSelectedImage(null)}
+                    className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors z-10"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                  <img 
+                    src={selectedImage.src} 
+                    alt={selectedImage.alt}
+                    className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
+                  />
+                </div>
+              )}
+            </DialogContent>
+          </Dialog>
 
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-6">

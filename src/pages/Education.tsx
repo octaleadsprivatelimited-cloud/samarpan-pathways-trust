@@ -22,7 +22,7 @@ const Education = () => {
             <div>
               <h2 className="font-heading font-bold text-3xl mb-6">Transforming Lives Through Education</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Education is the foundation of our work at Youth Service Trust. We believe that quality education is the most powerful tool for breaking the cycle of poverty and creating opportunities for rural youth.
+                Education is the foundation of our work at Swamivivekananda Seva Brundam. We believe that quality education is the most powerful tool for breaking the cycle of poverty and creating opportunities for rural youth.
               </p>
               <p className="text-lg text-muted-foreground">
                 Our education programs focus on providing access to quality learning resources, digital literacy, and supplementary education support to students in rural areas who lack basic educational infrastructure.

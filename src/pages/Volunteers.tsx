@@ -37,7 +37,7 @@ const Volunteers = () => {
       <section className="section-padding">
         <div className="container-custom max-w-6xl">
           <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
-            Volunteering with Youth Service Trust is a rewarding experience that allows you to make a direct impact on rural communities. Whether you can contribute a few hours or commit to long-term involvement, we value your time and skills.
+            Volunteering with Swamivivekananda Seva Brundam is a rewarding experience that allows you to make a direct impact on rural communities. Whether you can contribute a few hours or commit to long-term involvement, we value your time and skills.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">

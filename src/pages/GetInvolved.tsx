@@ -93,7 +93,7 @@ const GetInvolved = () => {
               <div className="text-center">
                 <h4 className="font-heading font-semibold text-lg mb-2">Legacy Giving</h4>
                 <p className="text-sm text-muted-foreground">
-                  Include Youth Service Trust in your estate planning for lasting impact.
+                  Include Swamivivekananda Seva Brundam in your estate planning for lasting impact.
                 </p>
               </div>
             </div>

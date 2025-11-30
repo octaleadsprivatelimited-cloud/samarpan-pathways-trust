@@ -40,41 +40,41 @@ const Home = () => {
       {/* Impact Stats */}
       <section className="section-padding bg-light-bg">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-4 gap-2 md:gap-6">
             <Card className="text-center border-none shadow-lg">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-primary-foreground" />
+              <CardContent className="pt-3 md:pt-6 px-2 md:px-6">
+                <div className="w-8 h-8 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4">
+                  <Users className="w-4 h-4 md:w-8 md:h-8 text-primary-foreground" />
                 </div>
-                <h3 className="font-heading font-bold text-3xl mb-2">10,000+</h3>
-                <p className="text-muted-foreground">Lives Impacted</p>
+                <h3 className="font-heading font-bold text-sm md:text-3xl mb-1 md:mb-2">10,000+</h3>
+                <p className="text-muted-foreground text-xs md:text-base">Lives Impacted</p>
               </CardContent>
             </Card>
             <Card className="text-center border-none shadow-lg">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-secondary-foreground" />
+              <CardContent className="pt-3 md:pt-6 px-2 md:px-6">
+                <div className="w-8 h-8 md:w-16 md:h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4">
+                  <Heart className="w-4 h-4 md:w-8 md:h-8 text-secondary-foreground" />
                 </div>
-                <h3 className="font-heading font-bold text-3xl mb-2">50+</h3>
-                <p className="text-muted-foreground">Programs Launched</p>
+                <h3 className="font-heading font-bold text-sm md:text-3xl mb-1 md:mb-2">50+</h3>
+                <p className="text-muted-foreground text-xs md:text-base">Programs Launched</p>
               </CardContent>
             </Card>
             <Card className="text-center border-none shadow-lg">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="w-8 h-8 text-accent-foreground" />
+              <CardContent className="pt-3 md:pt-6 px-2 md:px-6">
+                <div className="w-8 h-8 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4">
+                  <Lightbulb className="w-4 h-4 md:w-8 md:h-8 text-accent-foreground" />
                 </div>
-                <h3 className="font-heading font-bold text-3xl mb-2">25+</h3>
-                <p className="text-muted-foreground">Villages Served</p>
+                <h3 className="font-heading font-bold text-sm md:text-3xl mb-1 md:mb-2">25+</h3>
+                <p className="text-muted-foreground text-xs md:text-base">Villages Served</p>
               </CardContent>
             </Card>
             <Card className="text-center border-none shadow-lg">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-growth-green rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TreePine className="w-8 h-8 text-white" />
+              <CardContent className="pt-3 md:pt-6 px-2 md:px-6">
+                <div className="w-8 h-8 md:w-16 md:h-16 bg-growth-green rounded-full flex items-center justify-center mx-auto mb-2 md:mb-4">
+                  <TreePine className="w-4 h-4 md:w-8 md:h-8 text-white" />
                 </div>
-                <h3 className="font-heading font-bold text-3xl mb-2">15+</h3>
-                <p className="text-muted-foreground">Years of Service</p>
+                <h3 className="font-heading font-bold text-sm md:text-3xl mb-1 md:mb-2">15+</h3>
+                <p className="text-muted-foreground text-xs md:text-base">Years of Service</p>
               </CardContent>
             </Card>
           </div>
@@ -87,10 +87,10 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">
-                About Youth Service Trust
+                About Swamivivekananda Seva Brundam
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Founded by National Youth Awardee Shiva Kumar Gudlanaram, Youth Service Trust is dedicated to transforming rural communities through comprehensive development programs.
+                Founded by National Youth Awardee Shiva Kumar Gudlanaram, Swamivivekananda Seva Brundam is dedicated to transforming rural communities through comprehensive development programs.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
                 Our grassroots approach focuses on empowering youth, women, and underprivileged communities through education, skill development, and sustainable livelihood initiatives.

@@ -21,7 +21,7 @@ const About = () => {
           <h2 className="font-heading font-bold text-3xl mb-6">Our Story</h2>
           <div className="space-y-4 text-lg text-muted-foreground">
             <p>
-              Youth Service Trust was established with a vision to create meaningful change in rural communities across India. Founded by National Youth Awardee Shiva Kumar Gudlanaram, our organization has been at the forefront of grassroots development for over 15 years.
+              Swamivivekananda Seva Brundam was established with a vision to create meaningful change in rural communities across India. Founded by National Youth Awardee Shiva Kumar Gudlanaram, our organization has been at the forefront of grassroots development for over 15 years.
             </p>
             <p>
               What started as a small initiative to support rural education has grown into a comprehensive development organization, touching the lives of thousands through our various programs in education, health, women empowerment, and sustainable development.
