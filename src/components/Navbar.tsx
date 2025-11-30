@@ -100,7 +100,7 @@ const Navbar = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed top-20 left-0 right-0 bg-background border-b border-border shadow-lg z-50 lg:hidden max-h-[calc(100vh-5rem)] overflow-y-auto"
+              className="fixed top-20 left-0 right-0 bg-background border-b border-border shadow-2xl z-50 lg:hidden max-h-[calc(100vh-5rem)] overflow-y-auto"
             >
               <motion.div 
                 initial="closed"
@@ -113,7 +113,7 @@ const Navbar = () => {
                     transition: { staggerChildren: 0.05, staggerDirection: -1 }
                   }
                 }}
-                className="container-custom py-4 space-y-2"
+                className="container-custom py-3 space-y-0.5"
               >
                 <motion.div
                   variants={{
@@ -121,7 +121,13 @@ const Navbar = () => {
                     closed: { opacity: 0, x: -20 }
                   }}
                 >
-                  <Link to="/" className="block py-2 text-foreground hover:text-primary" onClick={() => setIsOpen(false)}>Home</Link>
+                  <Link 
+                    to="/" 
+                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Home
+                  </Link>
                 </motion.div>
                 
                 <motion.div
@@ -129,12 +135,14 @@ const Navbar = () => {
                     open: { opacity: 1, x: 0 },
                     closed: { opacity: 0, x: -20 }
                   }}
+                  className="border-t border-border/50 mt-1 pt-1"
                 >
                   <button 
                     onClick={() => setDropdownOpen(dropdownOpen === "about" ? "" : "about")}
-                    className="flex items-center justify-between w-full py-2 text-foreground"
+                    className="flex items-center justify-between w-full py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium"
                   >
-                    About <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen === "about" ? "rotate-180" : ""}`} />
+                    <span>About</span>
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen === "about" ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
                     {dropdownOpen === "about" && (
@@ -145,7 +153,7 @@ const Navbar = () => {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="pl-4 space-y-2 mt-2">
+                        <div className="pl-3 pr-3 space-y-0.5 mt-1">
                           {about.map((item, index) => (
                             <motion.div
                               key={item.path}
@@ -153,7 +161,11 @@ const Navbar = () => {
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: index * 0.05 }}
                             >
-                              <Link to={item.path} className="block py-2 text-sm text-muted-foreground hover:text-primary" onClick={() => setIsOpen(false)}>
+                              <Link 
+                                to={item.path} 
+                                className="block py-1.5 px-3 rounded-lg text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all" 
+                                onClick={() => setIsOpen(false)}
+                              >
                                 {item.name}
                               </Link>
                             </motion.div>
@@ -169,12 +181,14 @@ const Navbar = () => {
                     open: { opacity: 1, x: 0 },
                     closed: { opacity: 0, x: -20 }
                   }}
+                  className="border-t border-border/50 mt-1 pt-1"
                 >
                   <button 
                     onClick={() => setDropdownOpen(dropdownOpen === "programs" ? "" : "programs")}
-                    className="flex items-center justify-between w-full py-2 text-foreground"
+                    className="flex items-center justify-between w-full py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium"
                   >
-                    Programs <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen === "programs" ? "rotate-180" : ""}`} />
+                    <span>Programs</span>
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen === "programs" ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
                     {dropdownOpen === "programs" && (
@@ -185,7 +199,7 @@ const Navbar = () => {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="pl-4 space-y-2 mt-2">
+                        <div className="pl-3 pr-3 space-y-0.5 mt-1">
                           {programs.map((item, index) => (
                             <motion.div
                               key={item.path}
@@ -193,7 +207,11 @@ const Navbar = () => {
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: index * 0.05 }}
                             >
-                              <Link to={item.path} className="block py-2 text-sm text-muted-foreground hover:text-primary" onClick={() => setIsOpen(false)}>
+                              <Link 
+                                to={item.path} 
+                                className="block py-1.5 px-3 rounded-lg text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all" 
+                                onClick={() => setIsOpen(false)}
+                              >
                                 {item.name}
                               </Link>
                             </motion.div>
@@ -210,7 +228,13 @@ const Navbar = () => {
                     closed: { opacity: 0, x: -20 }
                   }}
                 >
-                  <Link to="/events" className="block py-2 text-foreground hover:text-primary" onClick={() => setIsOpen(false)}>Events</Link>
+                  <Link 
+                    to="/events" 
+                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Events
+                  </Link>
                 </motion.div>
                 <motion.div
                   variants={{
@@ -218,7 +242,13 @@ const Navbar = () => {
                     closed: { opacity: 0, x: -20 }
                   }}
                 >
-                  <Link to="/gallery" className="block py-2 text-foreground hover:text-primary" onClick={() => setIsOpen(false)}>Gallery</Link>
+                  <Link 
+                    to="/gallery" 
+                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Gallery
+                  </Link>
                 </motion.div>
                 <motion.div
                   variants={{
@@ -226,7 +256,13 @@ const Navbar = () => {
                     closed: { opacity: 0, x: -20 }
                   }}
                 >
-                  <Link to="/news" className="block py-2 text-foreground hover:text-primary" onClick={() => setIsOpen(false)}>News</Link>
+                  <Link 
+                    to="/news" 
+                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
+                    onClick={() => setIsOpen(false)}
+                  >
+                    News
+                  </Link>
                 </motion.div>
                 <motion.div
                   variants={{
@@ -234,15 +270,22 @@ const Navbar = () => {
                     closed: { opacity: 0, x: -20 }
                   }}
                 >
-                  <Link to="/contact" className="block py-2 text-foreground hover:text-primary" onClick={() => setIsOpen(false)}>Contact</Link>
+                  <Link 
+                    to="/contact" 
+                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Contact
+                  </Link>
                 </motion.div>
                 <motion.div
                   variants={{
                     open: { opacity: 1, x: 0 },
                     closed: { opacity: 0, x: -20 }
                   }}
+                  className="border-t border-border/50 mt-2 pt-2"
                 >
-                  <Button asChild variant="default" className="w-full bg-secondary hover:bg-secondary/90 mt-2">
+                  <Button asChild variant="default" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-3 text-sm">
                     <Link to="/donate" onClick={() => setIsOpen(false)}>Donate Now</Link>
                   </Button>
                 </motion.div>
@@ -253,19 +296,21 @@ const Navbar = () => {
                     open: { opacity: 1, x: 0 },
                     closed: { opacity: 0, x: -20 }
                   }}
-                  className="mt-6 pt-6 border-t border-border"
+                  className="mt-3 pt-3 border-t-2 border-border/50 bg-primary/5 rounded-lg p-3"
                 >
-                  <h3 className="font-heading font-semibold text-lg mb-4">Contact Us</h3>
-                  <div className="space-y-3">
+                  <h3 className="font-heading font-semibold text-sm mb-2 text-primary">Contact Us</h3>
+                  <div className="space-y-2">
                     <motion.div
                       variants={{
                         open: { opacity: 1, x: 0 },
                         closed: { opacity: 0, x: -20 }
                       }}
-                      className="flex items-start gap-3"
+                      className="flex items-start gap-2 p-2 bg-background rounded-lg"
                     >
-                      <MapPin size={18} className="flex-shrink-0 mt-0.5 text-primary" />
-                      <span className="text-sm text-muted-foreground">
+                      <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <MapPin size={14} className="text-primary" />
+                      </div>
+                      <span className="text-xs text-muted-foreground leading-relaxed">
                         H No 6-113, Gandhinagar Kalwakurthy Village & Mandal, Nagarkurnool District, Telangana State - 509324
                       </span>
                     </motion.div>
@@ -274,10 +319,12 @@ const Navbar = () => {
                         open: { opacity: 1, x: 0 },
                         closed: { opacity: 0, x: -20 }
                       }}
-                      className="flex items-center gap-3"
+                      className="flex items-center gap-2 p-2 bg-background rounded-lg hover:bg-primary/5 transition-colors"
                     >
-                      <Mail size={18} className="flex-shrink-0 text-primary" />
-                      <a href="mailto:info@ysvsb.org" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Mail size={14} className="text-primary" />
+                      </div>
+                      <a href="mailto:info@ysvsb.org" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">
                         info@ysvsb.org
                       </a>
                     </motion.div>
@@ -286,10 +333,12 @@ const Navbar = () => {
                         open: { opacity: 1, x: 0 },
                         closed: { opacity: 0, x: -20 }
                       }}
-                      className="flex items-center gap-3"
+                      className="flex items-center gap-2 p-2 bg-background rounded-lg hover:bg-primary/5 transition-colors"
                     >
-                      <Phone size={18} className="flex-shrink-0 text-primary" />
-                      <a href="tel:+917013570447" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Phone size={14} className="text-primary" />
+                      </div>
+                      <a href="tel:+917013570447" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">
                         +91 70135 70447
                       </a>
                     </motion.div>
