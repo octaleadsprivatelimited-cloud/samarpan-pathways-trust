@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.ysvsb.org/</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://www.ysvsb.org/about</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Founder Page -->
+  <url>
+    <loc>https://www.ysvsb.org/founder</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Mission Page -->
+  <url>
+    <loc>https://www.ysvsb.org/mission</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Programs Page -->
+  <url>
+    <loc>https://www.ysvsb.org/programs</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Education Program -->
+  <url>
+    <loc>https://www.ysvsb.org/education</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Health Program -->
+  <url>
+    <loc>https://www.ysvsb.org/health</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Women Empowerment Program -->
+  <url>
+    <loc>https://www.ysvsb.org/women-empowerment</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Rural Development Program -->
+  <url>
+    <loc>https://www.ysvsb.org/rural-development</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Youth Development Program -->
+  <url>
+    <loc>https://www.ysvsb.org/youth-development</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Events Page -->
+  <url>
+    <loc>https://www.ysvsb.org/events</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://www.ysvsb.org/gallery</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- News Page -->
+  <url>
+    <loc>https://www.ysvsb.org/news</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Team Page -->
+  <url>
+    <loc>https://www.ysvsb.org/team</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Volunteers Page -->
+  <url>
+    <loc>https://www.ysvsb.org/volunteers</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Get Involved Page -->
+  <url>
+    <loc>https://www.ysvsb.org/get-involved</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Donate Page -->
+  <url>
+    <loc>https://www.ysvsb.org/donate</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://www.ysvsb.org/contact</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Achievements Page -->
+  <url>
+    <loc>https://www.ysvsb.org/achievements</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Annual Reports Page -->
+  <url>
+    <loc>https://www.ysvsb.org/annual-reports</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
+
