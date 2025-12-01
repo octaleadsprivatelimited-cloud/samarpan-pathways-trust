@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ChevronDown, ChevronUp } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown, ChevronUp } from "lucide-react";
 
 const Footer = () => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
@@ -24,17 +24,32 @@ const Footer = () => {
               Empowering rural communities through education, health, and sustainable development initiatives.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="hover:text-secondary transition-colors" aria-label="Facebook">
+              <a 
+                href="https://www.facebook.com/SwamivivekanandaSevaBrundam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-secondary transition-colors" 
+                aria-label="Facebook"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="hover:text-secondary transition-colors" aria-label="Twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="hover:text-secondary transition-colors" aria-label="Instagram">
+              <a 
+                href="https://www.instagram.com/swamivivekananda_seva_brundam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-secondary transition-colors" 
+                aria-label="Instagram"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" className="hover:text-secondary transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
+              <a 
+                href="https://www.youtube.com/@swamivivekanandasevabrunda2675" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-secondary transition-colors" 
+                aria-label="YouTube"
+              >
+                <Youtube size={20} />
               </a>
             </div>
           </div>
