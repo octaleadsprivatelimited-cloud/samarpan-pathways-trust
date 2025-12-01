@@ -26,6 +26,7 @@ import Contact from "./pages/Contact";
 import Achievements from "./pages/Achievements";
 import AnnualReports from "./pages/AnnualReports";
 import NotFound from "./pages/NotFound";
+import Sitemap from "./pages/Sitemap";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/annual-reports" element={<AnnualReports />} />
+          <Route path="/sitemap.xml" element={<Sitemap />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
