@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown, ChevronUp } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown, ChevronUp, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
@@ -50,6 +50,15 @@ const Footer = () => {
                 aria-label="YouTube"
               >
                 <Youtube size={20} />
+              </a>
+              <a 
+                href="https://wa.me/917013570447?text=Hello!%20I'm%20interested%20in%20learning%20more%20about%20Swamivivekananda%20Seva%20Brundam." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-[#25D366] transition-colors" 
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={20} />
               </a>
             </div>
           </div>
@@ -127,8 +136,19 @@ const Footer = () => {
                     +91 70135 70447
                   </a>
                 </li>
+                <li className="flex items-center gap-2">
+                  <MessageCircle size={16} className="flex-shrink-0" />
+                  <a 
+                    href="https://wa.me/917013570447?text=Hello!%20I'm%20interested%20in%20learning%20more%20about%20Swamivivekananda%20Seva%20Brundam." 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-secondary transition-colors"
+                  >
+                    WhatsApp Us
+                  </a>
+                </li>
               </ul>
-              <Link to="/donate" className="inline-block mt-4 px-6 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-colors">
+              <Link to="/donate" className="inline-block mt-4 px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
                 Support Our Cause
               </Link>
             </div>

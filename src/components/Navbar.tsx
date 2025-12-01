@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Mail, Phone, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImage from "@/assets/logo.jpg";
@@ -8,6 +8,8 @@ import logoImage from "@/assets/logo.jpg";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   const programs = [
     { name: "Education Initiatives", path: "/education" },
@@ -24,26 +26,68 @@ const Navbar = () => {
     { name: "Our Team", path: "/team" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <nav className="bg-background border-b border-border sticky top-0 z-50 shadow-sm">
-        <div className="container-custom">
-          <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex items-center gap-2">
-              <img src={logoImage} alt="Swamivivekananda Seva Brundam Logo" className="h-16 w-auto object-contain" />
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled 
+            ? "bg-white/80 backdrop-blur-md shadow-sm" 
+            : "bg-white/95 backdrop-blur-sm"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-14 overflow-visible">
+            {/* Logo */}
+            <Link to="/" className="flex items-center">
+              <img 
+                src={logoImage} 
+                alt="Swamivivekananda Seva Brundam Logo" 
+                className="h-12 w-auto object-contain" 
+              />
             </Link>
 
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-8">
-              <Link to="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
+            {/* Desktop Menu - Centered */}
+            <div className="hidden lg:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+              <Link 
+                to="/" 
+                className={`text-sm font-normal transition-colors ${
+                  location.pathname === "/" 
+                    ? "text-gray-900" 
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Home
+              </Link>
               
               <div className="relative group">
-                <button className="text-foreground hover:text-primary transition-colors flex items-center gap-1">
-                  About <ChevronDown className="w-4 h-4" />
+                <button 
+                  className={`text-sm font-normal transition-colors flex items-center gap-0.5 ${
+                    location.pathname.startsWith("/about") || 
+                    location.pathname.startsWith("/founder") || 
+                    location.pathname.startsWith("/mission") || 
+                    location.pathname.startsWith("/team")
+                      ? "text-gray-900" 
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  About
+                  <ChevronDown className="w-3 h-3 mt-0.5 transition-transform group-hover:rotate-180" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
                   {about.map((item) => (
-                    <Link key={item.path} to={item.path} className="block px-4 py-3 hover:bg-muted transition-colors">
+                    <Link 
+                      key={item.path} 
+                      to={item.path} 
+                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                    >
                       {item.name}
                     </Link>
                   ))}
@@ -51,31 +95,100 @@ const Navbar = () => {
               </div>
 
               <div className="relative group">
-                <button className="text-foreground hover:text-primary transition-colors flex items-center gap-1">
-                  Programs <ChevronDown className="w-4 h-4" />
+                <button 
+                  className={`text-sm font-normal transition-colors flex items-center gap-0.5 ${
+                    location.pathname.startsWith("/education") || 
+                    location.pathname.startsWith("/health") || 
+                    location.pathname.startsWith("/women-empowerment") || 
+                    location.pathname.startsWith("/rural-development") || 
+                    location.pathname.startsWith("/youth-development")
+                      ? "text-gray-900" 
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  Programs
+                  <ChevronDown className="w-3 h-3 mt-0.5 transition-transform group-hover:rotate-180" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2">
                   {programs.map((item) => (
-                    <Link key={item.path} to={item.path} className="block px-4 py-3 hover:bg-muted transition-colors">
+                    <Link 
+                      key={item.path} 
+                      to={item.path} 
+                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                    >
                       {item.name}
                     </Link>
                   ))}
                 </div>
               </div>
 
-              <Link to="/events" className="text-foreground hover:text-primary transition-colors">Events</Link>
-              <Link to="/gallery" className="text-foreground hover:text-primary transition-colors">Gallery</Link>
-              <Link to="/news" className="text-foreground hover:text-primary transition-colors">News</Link>
-              <Link to="/contact" className="text-foreground hover:text-primary transition-colors">Contact</Link>
-              <Button asChild variant="default" className="bg-secondary hover:bg-secondary/90">
-                <Link to="/donate">Donate Now</Link>
+              <Link 
+                to="/events" 
+                className={`text-sm font-normal transition-colors ${
+                  location.pathname === "/events" 
+                    ? "text-gray-900" 
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Events
+              </Link>
+              <Link 
+                to="/gallery" 
+                className={`text-sm font-normal transition-colors ${
+                  location.pathname === "/gallery" 
+                    ? "text-gray-900" 
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Gallery
+              </Link>
+              <Link 
+                to="/news" 
+                className={`text-sm font-normal transition-colors ${
+                  location.pathname === "/news" 
+                    ? "text-gray-900" 
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                News
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`text-sm font-normal transition-colors ${
+                  location.pathname === "/contact" 
+                    ? "text-gray-900" 
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Contact
+              </Link>
+            </div>
+
+            {/* Donate Button - Right */}
+            <div className="hidden lg:block">
+              <Button 
+                asChild 
+                className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-normal px-5 py-2 rounded-full transition-all"
+              >
+                <Link to="/donate">Donate</Link>
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-foreground z-50 relative">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Header Actions */}
+            <div className="flex items-center gap-3 lg:hidden">
+              <Button 
+                asChild 
+                className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-normal px-4 py-1.5 rounded-full transition-all"
+              >
+                <Link to="/donate">Donate</Link>
+              </Button>
+              <button 
+                onClick={() => setIsOpen(!isOpen)} 
+                className="text-gray-900 z-50 relative"
+              >
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -90,59 +203,34 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setIsOpen(false)}
             />
             
             {/* Mobile Menu */}
             <motion.div 
-              initial={{ y: -20, opacity: 0 }}
+              initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
+              exit={{ y: -100, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed top-20 left-0 right-0 bg-background border-b border-border shadow-2xl z-50 lg:hidden max-h-[calc(100vh-5rem)] overflow-y-auto"
+              className="fixed top-14 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-lg z-50 lg:hidden max-h-[calc(100vh-3.5rem)] overflow-y-auto"
             >
-              <motion.div 
-                initial="closed"
-                animate="open"
-                variants={{
-                  open: {
-                    transition: { staggerChildren: 0.05, delayChildren: 0.1 }
-                  },
-                  closed: {
-                    transition: { staggerChildren: 0.05, staggerDirection: -1 }
-                  }
-                }}
-                className="container-custom py-3 space-y-0.5"
-              >
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
+              <div className="px-4 py-4 space-y-1">
+                <Link 
+                  to="/" 
+                  className="block py-2.5 px-3 text-base text-gray-900 hover:bg-gray-50 rounded-lg transition-colors font-normal" 
+                  onClick={() => setIsOpen(false)}
                 >
-                  <Link 
-                    to="/" 
-                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Home
-                  </Link>
-                </motion.div>
+                  Home
+                </Link>
                 
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                  className="border-t border-border/50 mt-1 pt-1"
-                >
+                <div>
                   <button 
                     onClick={() => setDropdownOpen(dropdownOpen === "about" ? "" : "about")}
-                    className="flex items-center justify-between w-full py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium"
+                    className="flex items-center justify-between w-full py-2.5 px-3 text-base text-gray-900 hover:bg-gray-50 rounded-lg transition-colors font-normal"
                   >
                     <span>About</span>
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen === "about" ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen === "about" ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
                     {dropdownOpen === "about" && (
@@ -153,42 +241,30 @@ const Navbar = () => {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="pl-3 pr-3 space-y-0.5 mt-1">
-                          {about.map((item, index) => (
-                            <motion.div
-                              key={item.path}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
+                        <div className="pl-4 pr-3 space-y-1 mt-1">
+                          {about.map((item) => (
+                            <Link 
+                              key={item.path} 
+                              to={item.path} 
+                              className="block py-2 px-3 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors" 
+                              onClick={() => setIsOpen(false)}
                             >
-                              <Link 
-                                to={item.path} 
-                                className="block py-1.5 px-3 rounded-lg text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all" 
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {item.name}
-                              </Link>
-                            </motion.div>
+                              {item.name}
+                            </Link>
                           ))}
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                  className="border-t border-border/50 mt-1 pt-1"
-                >
+                <div>
                   <button 
                     onClick={() => setDropdownOpen(dropdownOpen === "programs" ? "" : "programs")}
-                    className="flex items-center justify-between w-full py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium"
+                    className="flex items-center justify-between w-full py-2.5 px-3 text-base text-gray-900 hover:bg-gray-50 rounded-lg transition-colors font-normal"
                   >
                     <span>Programs</span>
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen === "programs" ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen === "programs" ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
                     {dropdownOpen === "programs" && (
@@ -199,152 +275,60 @@ const Navbar = () => {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="pl-3 pr-3 space-y-0.5 mt-1">
-                          {programs.map((item, index) => (
-                            <motion.div
-                              key={item.path}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
+                        <div className="pl-4 pr-3 space-y-1 mt-1">
+                          {programs.map((item) => (
+                            <Link 
+                              key={item.path} 
+                              to={item.path} 
+                              className="block py-2 px-3 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors" 
+                              onClick={() => setIsOpen(false)}
                             >
-                              <Link 
-                                to={item.path} 
-                                className="block py-1.5 px-3 rounded-lg text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all" 
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {item.name}
-                              </Link>
-                            </motion.div>
+                              {item.name}
+                            </Link>
                           ))}
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
+                <Link 
+                  to="/events" 
+                  className="block py-2.5 px-3 text-base text-gray-900 hover:bg-gray-50 rounded-lg transition-colors font-normal" 
+                  onClick={() => setIsOpen(false)}
                 >
-                  <Link 
-                    to="/events" 
-                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
-                    onClick={() => setIsOpen(false)}
+                  Events
+                </Link>
+                <Link 
+                  to="/gallery" 
+                  className="block py-2.5 px-3 text-base text-gray-900 hover:bg-gray-50 rounded-lg transition-colors font-normal" 
+                  onClick={() => setIsOpen(false)}
+                >
+                  Gallery
+                </Link>
+                <Link 
+                  to="/news" 
+                  className="block py-2.5 px-3 text-base text-gray-900 hover:bg-gray-50 rounded-lg transition-colors font-normal" 
+                  onClick={() => setIsOpen(false)}
+                >
+                  News
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className="block py-2.5 px-3 text-base text-gray-900 hover:bg-gray-50 rounded-lg transition-colors font-normal" 
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact
+                </Link>
+                <div className="pt-2 mt-2 border-t border-gray-100">
+                  <Button 
+                    asChild 
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-normal py-2.5 text-base rounded-lg"
                   >
-                    Events
-                  </Link>
-                </motion.div>
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                >
-                  <Link 
-                    to="/gallery" 
-                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Gallery
-                  </Link>
-                </motion.div>
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                >
-                  <Link 
-                    to="/news" 
-                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
-                    onClick={() => setIsOpen(false)}
-                  >
-                    News
-                  </Link>
-                </motion.div>
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                >
-                  <Link 
-                    to="/contact" 
-                    className="block py-2 px-3 rounded-lg text-sm text-foreground hover:text-primary hover:bg-primary/10 transition-all font-medium" 
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Contact
-                  </Link>
-                </motion.div>
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                  className="border-t border-border/50 mt-2 pt-2"
-                >
-                  <Button asChild variant="default" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-3 text-sm">
-                    <Link to="/donate" onClick={() => setIsOpen(false)}>Donate Now</Link>
+                    <Link to="/donate" onClick={() => setIsOpen(false)}>Donate</Link>
                   </Button>
-                </motion.div>
-
-                {/* Contact Details Section */}
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                  className="mt-3 pt-3 border-t-2 border-border/50 bg-primary/5 rounded-lg p-3"
-                >
-                  <h3 className="font-heading font-semibold text-sm mb-2 text-primary">Contact Us</h3>
-                  <div className="space-y-2">
-                    <motion.div
-                      variants={{
-                        open: { opacity: 1, x: 0 },
-                        closed: { opacity: 0, x: -20 }
-                      }}
-                      className="flex items-start gap-2 p-2 bg-background rounded-lg"
-                    >
-                      <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <MapPin size={14} className="text-primary" />
-                      </div>
-                      <span className="text-xs text-muted-foreground leading-relaxed">
-                        H No 6-113, Gandhinagar Kalwakurthy Village & Mandal, Nagarkurnool District, Telangana State - 509324
-                      </span>
-                    </motion.div>
-                    <motion.div
-                      variants={{
-                        open: { opacity: 1, x: 0 },
-                        closed: { opacity: 0, x: -20 }
-                      }}
-                      className="flex items-center gap-2 p-2 bg-background rounded-lg hover:bg-primary/5 transition-colors"
-                    >
-                      <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Mail size={14} className="text-primary" />
-                      </div>
-                      <a href="mailto:info@ysvsb.org" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">
-                        info@ysvsb.org
-                      </a>
-                    </motion.div>
-                    <motion.div
-                      variants={{
-                        open: { opacity: 1, x: 0 },
-                        closed: { opacity: 0, x: -20 }
-                      }}
-                      className="flex items-center gap-2 p-2 bg-background rounded-lg hover:bg-primary/5 transition-colors"
-                    >
-                      <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Phone size={14} className="text-primary" />
-                      </div>
-                      <a href="tel:+917013570447" className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium">
-                        +91 70135 70447
-                      </a>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             </motion.div>
           </>
         )}

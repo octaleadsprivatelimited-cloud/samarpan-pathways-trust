@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Wallet } from "lucide-react";
+import { Mail, Phone, MapPin, Wallet, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -107,6 +107,22 @@ const Contact = () => {
                     <h3 className="font-heading font-semibold text-lg mb-2">Phone</h3>
                     <a href="tel:+917013570447" className="text-muted-foreground hover:text-primary transition-colors">
                       +91 70135 70447
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-6 bg-light-bg rounded-lg">
+                  <MessageCircle className="w-6 h-6 text-[#25D366] flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-heading font-semibold text-lg mb-2">WhatsApp</h3>
+                    <a 
+                      href="https://wa.me/917013570447?text=Hello!%20I'm%20interested%20in%20learning%20more%20about%20Swamivivekananda%20Seva%20Brundam." 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-[#25D366] transition-colors inline-flex items-center gap-2"
+                    >
+                      +91 70135 70447
+                      <span className="text-xs bg-[#25D366]/10 text-[#25D366] px-2 py-0.5 rounded">Chat Now</span>
                     </a>
                   </div>
                 </div>

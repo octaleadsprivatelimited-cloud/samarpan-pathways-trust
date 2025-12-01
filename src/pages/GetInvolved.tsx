@@ -67,7 +67,7 @@ const GetInvolved = () => {
                   </div>
                   <h3 className="font-heading font-bold text-2xl mb-4">{way.title}</h3>
                   <p className="text-muted-foreground mb-6">{way.description}</p>
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                  <Button asChild className={`w-full ${way.link === "/donate" ? "bg-orange-500 hover:bg-orange-600 text-white" : "bg-primary hover:bg-primary/90"}`}>
                     <Link to={way.link}>{way.action}</Link>
                   </Button>
                 </CardContent>

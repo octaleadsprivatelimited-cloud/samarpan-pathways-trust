@@ -14,16 +14,22 @@ const Home = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] md:h-[85vh] lg:h-[90vh] flex items-end justify-center overflow-hidden pb-16 md:pb-24 lg:pb-32">
-        <div className="absolute inset-0">
-          <img src={heroImage} alt="Youth empowerment" className="w-full h-full object-cover" />
+      <section className="relative min-h-[100vh] md:h-[70vh] md:min-h-[600px] lg:h-[85vh] lg:min-h-[700px] xl:h-[90vh] flex items-end justify-center pb-8 md:pb-16 lg:pb-24 xl:pb-32">
+        {/* Black background */}
+        <div className="absolute inset-0 -top-14 md:top-0 bg-black z-0"></div>
+        <div className="absolute inset-0 -top-14 md:top-0 z-[1]">
+          <img 
+            src={heroImage} 
+            alt="Youth empowerment" 
+            className="w-full h-full object-contain md:object-cover object-center md:object-top" 
+          />
         </div>
-        <div className="container-custom relative z-10 text-center text-white px-4">
+        <div className="container-custom relative z-10 text-center text-white px-4 pb-8 md:pb-0">
           <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-10 opacity-95 animate-in fade-in duration-700 delay-200 max-w-3xl mx-auto drop-shadow-lg">
             Building a brighter future through education, empowerment, and sustainable development
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in duration-700 delay-300">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/donate">Support Our Mission</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white">
@@ -164,7 +170,7 @@ const Home = () => {
             Your support can transform lives and build stronger communities. Together, we can create lasting change.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/donate">Donate Now</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white">
