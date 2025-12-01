@@ -14,16 +14,12 @@ const Home = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[70vh] min-h-[600px] md:h-[85vh] lg:h-[90vh] flex items-end justify-center overflow-hidden pb-16 md:pb-24 lg:pb-32">
         <div className="absolute inset-0">
           <img src={heroImage} alt="Youth empowerment" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
         </div>
-        <div className="container-custom relative z-10 text-center text-white">
-          <h1 className="font-heading font-bold text-4xl md:text-6xl mb-6 animate-in fade-in duration-700">
-            Empowering Communities,<br />Transforming Lives
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-95 animate-in fade-in duration-700 delay-200">
+        <div className="container-custom relative z-10 text-center text-white px-4">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-10 opacity-95 animate-in fade-in duration-700 delay-200 max-w-3xl mx-auto drop-shadow-lg">
             Building a brighter future through education, empowerment, and sustainable development
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in duration-700 delay-300">
